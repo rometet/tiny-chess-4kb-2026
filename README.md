@@ -35,6 +35,8 @@
 - No external dependencies or libraries
 
 ## Tests
+- The smoke tests confirm that the engine returns legal moves for a small set of known positions; they do not measure playing strength.
+- Untested: performance against other engines, robustness across the full range of opening and endgame positions, and long-game stability.
 - Smoke tested three independent chess positions.
 - Self-play verified 24 consecutive legal half-moves.
 - Most recent maximum move duration was 1.052 seconds.
@@ -45,6 +47,8 @@
 - Official transcript checks are required before the entry can be submitted
 
 ## Limitations
+- Search is capped by a fixed depth budget, so deeper tactics may be missed in complex positions.
+- No tournament results exist yet, so relative strength against other engines is unknown.
 - No opening books or endgame tablebases
 - Tactical search has finite depth
 - No network dependencies for competition

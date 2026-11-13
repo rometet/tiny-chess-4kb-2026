@@ -1,6 +1,18 @@
 # Tiny Chess: 4 KB Python Agent
 
 ## Architecture
+- The entrypoint uses Python 3.13.
+- The chess engine uses standard-library Python only.
+- The source payload is encoded in base85.
+- The payload decompresses with lzma.
+- Chess moves use UCI coordinate notation.
+- The engine searches moves without a network connection.
+- Legal move generation checks king safety.
+- Captures and check evasions use quiescence search.
+- Search uses a finite depth budget.
+- There is no opening book.
+- There are no tablebases.
+- The packed entry stays below 4096 bytes.
 - Modular design with compressed payload (lzma + base85 encoding)
 - Single-file execution via Python 3.13 standard library
 - UCI protocol compliance for chess move generation
@@ -23,6 +35,10 @@
 - No external dependencies or libraries
 
 ## Tests
+- Smoke tested three independent chess positions.
+- Self-play verified 24 consecutive legal half-moves.
+- Most recent maximum move duration was 1.052 seconds.
+- Tournament strength remains unverified.
 - Smoke tests verify legal output on known positions
 - Self-play tests evaluate move consistency
 - Local validation checks code size compliance
